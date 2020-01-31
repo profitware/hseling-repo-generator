@@ -1,0 +1,2 @@
+recursive-include hseling_api_generator/templates *
+recursive-include hseling_api_generator/static *
