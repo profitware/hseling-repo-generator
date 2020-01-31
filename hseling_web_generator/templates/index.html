@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Поэтический генератор: поэзия на нейронных сетях</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.min.css') }}">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#0000ff">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#0000ff">
+    <meta name="msapplication-TileColor" content="#0000ff">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<body>
+<h1>{{ url_for('static', filename='main.min.css') }}</h1>
+<div class="loader">
+    <div class="loader-bg"></div>
+    <div class="loader-logo-wrapper">
+        <span class="loader-logo-bg"></span>
+    <span class="loader-logo">
+        <span class="loader-logo-overlay"></span>
+    </span>
+    </div>
+</div>
+<div id="site-wrapper">
+    <div class="site-container" data-namespace="home">
+        <div class="layer--transition"></div>
+        <div class="layer--white"></div>
+        <header class="top-bar">
+            <div class="wrap">
+                <div class="row">
+                    <nav>
+                        <a href="models/azarova">Азарова</a>
+                        <a href="models/hexameter">Гекзаметр</a>
+                        <a href="models/modernism">Модернизм</a>
+                        <a href="models/vysotsky">Высоцкий</a>
+                        <a href="" class="active">О генераторе</a>
+                    </nav>
+                    <span class="headline"></span>
+                </div>
+            </div>
+        </header>
+
+        <a class="logo" href="{{ url_for('static', filename='generator.png') }}" target="_blank">
+            <img src="{{ url_for('static', filename='generator.png') }}">
+        </a>
+
+        <button class="hamburger hamburger--spin show_sm" type="button" data-js="mobile-nav-toggle" data-status="off"
+                data-target="" mobile-nav-toggle aria-label="Menu" aria-controls="navigation">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+        </button>
+<main class="main-wrapper">
+
+    <section class="header home">
+        <div class="wrap">
+            
+                <p>На этой странице представлен поэтический генератор на основе нейронных сетей.<br /> Модели натренированы на четырёх коллекциях текстов с помощью фреймворка Tensorflow.</p> <p>За хостинг и серверные возможности автор благодарен Школе лингвистики НИУ Высшая школа экономики. </p>
+                <p>Борис Орехов, 2017 </p>
+            
+        </div>
+    </section>
+    <div class="layer--overlay"></div>
+    <div class="layer--cover"></div>
+    
+    <section class="home">
+
+        <div class="capabilities">
+            <div class="wrap">
+                <div class="capabillities row">
+                    <h2 data-scrollmagic>Модели</h2>
+                    <dl data-scrollmagic>
+                        <dt>Наталия Азарова</dt>
+                        <dd>Трехслойная рекуррентная нейронная сеть на 1024 нейрона, объем коллекции 27791 слово (197282 символа) с сайта natalia-azarova.com.
+                        </dd>
+                        <dt>Русский гекзаметр</dt>
+                        <dd>Трехслойная рекуррентная нейронная сеть на 1024 нейрона, объем коллекции 847385 слов (5351337 символов), включая переводы античных текстов и оригинальные произведения.
+                        </dd>
+                        <dt>Русский модернизм</dt>
+                        <dd>Трехслойная рекуррентная нейронная сеть на 1024 нейрона, объем коллекции 3572919 слов (21973307 символов), включает поэтические произведения, созданные в промежутке с 1900 по 1930 год.
+                        </dd>
+                        <dt>Высоцкий</dt>
+                        <dd>Трехслойная рекуррентная нейронная сеть на 1024 нейрона, объем коллекции 107422 слова (652936 символов), включает тексты из издания А. Е. Крылова.
+                        </dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+
+        <div class="work" data-scrollmagic>
+            <div class="wrap">
+                <div class="row">
+                    <div class="recent-work-title">
+                        <h2>&nbsp;</h2>
+                        <p>&nbsp;</p>
+                    </div>
+                    <div class="recent-work-title">
+                        <h2>Статья</h2>
+                        <p><a href="{{ url_for('static', filename='NeurNetsAsDR.pdf') }}" target="_blank">Статья</a> о поэзии на нейронных сетях.<br> <i>Орехов Б. В.</i> Искусственные нейронные сети как особый тип distant reading // Вестник Приамурского государственного университета им. Шолом-Алйхема. 2017. № 2. С. 32-43.</p>
+                    </div>
+                    
+                    <div class="recent-work-title">
+                        <h2>char-rnn-tensorflow</h2>
+                        <p>В проекте использован <a href="https://github.com/sherjilozair/char-rnn-tensorflow" target="_blank">код для генерации текста с помощью рекуррентных нейронных сетей</a>.</p>
+                    </div>
+                    
+                    
+                    <div class="recent-work-title">
+                        <h2>Башкирские хокку</h2>
+                        <p>Генератор <a href="http://nevmenandr.net/cgi-bin/haiku.html" target="_blank">хокку на башкирском языке</a>.</p>
+                    </div>
+                    
+                    <div class="recent-work-title">
+                        <h2>Синотретил</h2>
+                        <p><a href="http://nevmenandr.net/pages/morales.php" target="_blank">Синотретил грамматических механизмов: первая в мире книга о грамматической семантике, написанная нейронной сетью</a>.</p>
+                    </div>
+                    
+                    <div class="recent-work-title">
+                        <h2>Автор генератора</h2>
+                        <p><a href="http://nevmenandr.net/bo.php" target="_blank">Борис Орехов</a>. Для связи: nevmenandr@gmail.com</p>
+                    </div>
+                    
+                    <div class="recent-work-title">
+                        <h2>Скачать модели</h2>
+                        <p>Используемые в генераторе модели можно скачать и использовать по своему усмотрению. См. ссылки ниже.</p>
+                    </div>
+
+
+
+                </div>
+                <footer class="work-more">
+                    <a href="https://cloud.mail.ru/public/Htc5/XGYe2ZUGF" class="btn btn--more view-work" target="_blank">
+                        <span>Азарова. Скачать модель</span>
+                    </a>
+                    
+                    <p>&nbsp;</p>
+                    
+                    <a href="https://cloud.mail.ru/public/FhAY/JSQx1mDVr" class="btn btn--more view-work" target="_blank">
+                        <span>Гекзаметр. Скачать модель</span>
+                    </a>
+                    
+                    <p>&nbsp;</p>
+                    
+                    <a href="https://cloud.mail.ru/public/GLfd/dngwT8vfi" class="btn btn--more view-work" target="_blank">
+                        <span>Модернизм. Скачать модель</span>
+                    </a>
+                    
+                    <p>&nbsp;</p>
+                    
+                    <a href="https://cloud.mail.ru/public/M6wv/b1kF1DvXX" class="btn btn--more view-work" target="_blank">
+                        <span>Высоцкий. Скачать модель</span>
+                    </a>
+
+                </footer>
+            </div>
+        </div>
+
+    </section>
+
+</main>
+<footer class="footer">
+    <div class="wrap">
+        <div class="row">
+            <a class="logo" href="{{ url_for('static', filename='generator.png') }}" target="_blank">
+                <img src="{{ url_for('static', filename='generator.png') }}">
+            </a>
+            <em>Генератор поэтических текстов | <a href='http://nevmenandr.net/bo.php'>Борис Орехов</a></em>
+        </div>
+    </div>
+</footer>
+
+
+<div class="on-work"></div>
+</div>
+
+</div>
+
+<script src="{{ url_for('static', filename='dist/js.min.js') }}" defer></script>
+
+<div class="overlay"></div>
+
+</body>
+</html>

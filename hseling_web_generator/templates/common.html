@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Поэтический генератор: {{name}}</title>
+    <link rel="stylesheet" type="text/css" href="../static/dist/main.min.css">
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#0000ff">
+    <!-- Windows Phone -->
+    <meta name="msapplication-navbutton-color" content="#0000ff">
+    <meta name="msapplication-TileColor" content="#0000ff">
+    <!-- iOS Safari -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+<body>
+<div class="loader">
+    <div class="loader-bg"></div>
+    <div class="loader-logo-wrapper">
+        <span class="loader-logo-bg"></span>
+    <span class="loader-logo">
+        <span class="loader-logo-overlay"></span>
+    </span>
+    </div>
+</div>
+<div id="site-wrapper">
+    <div class="site-container" data-namespace="home">
+        <div class="layer--transition"></div>
+        <div class="layer--white"></div>
+        <header class="top-bar">
+            <div class="wrap">
+                <div class="row">
+                    <nav>
+                        <a href="azarova"{{l1}}>Азарова</a>
+                        <a href="hexameter"{{l2}}>Гекзаметр</a>
+                        <a href="modernism"{{l3}}>Модернизм</a>
+                        <a href="vysotsky"{{l4}}>Высоцкий</a>
+                        <a href="../">О генераторе</a>
+                    </nav>
+                    <span class="headline"></span>
+                </div>
+            </div>
+        </header>
+
+        <a class="logo" href="../static/generator.png" target="_blank">
+            <img src="../static/generator.png">
+        </a>
+
+        <button class="hamburger hamburger--spin show_sm" type="button" data-js="mobile-nav-toggle" data-status="off"
+                data-target="" mobile-nav-toggle aria-label="Menu" aria-controls="navigation">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+        </button>
+<main class="main-wrapper">
+
+    <section class="header home">
+        <div class="wrap">
+            
+                <p>
+
+{{text|safe}}
+
+
+</p>
+            
+        </div>
+    </section>
+    <div class="layer--overlay"></div>
+    <div class="layer--cover"></div>
+</main>
+<footer class="footer">
+    <div class="wrap">
+        <div class="row">
+            <a class="logo" href="../static/generator.png" target="_blank">
+                <img src="../static/generator.png">
+            </a>
+            <em>Генератор поэтических текстов | Борис Орехов</em>
+        </div>
+    </div>
+</footer>
+
+
+<div class="on-work"></div>
+</div>
+
+</div>
+
+<script src="../static/dist/js.min.js" defer></script>
+
+<div class="overlay"></div>
+
+</body>
+</html>

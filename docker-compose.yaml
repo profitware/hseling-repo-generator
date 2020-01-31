@@ -30,59 +30,14 @@ services:
   command: server /data/minio
   environment: *common-variables
 
-
-
-
-
- # Development related
- db:
-  env_file: hseling_web_generator/environment.env
-  build:
-   context: ./hseling_web_generator/
-   dockerfile: ./docker/db/Dockerfile
-   args:
-    # These values should be in sync with environment.env
-    # for development. If you change them, you'll 
-    # need to rebuild the container
-    - POSTGRES_DB=templatesitedb
-    - POSTGRES_USER=postgres
-    - POSTGRES_PASSWORD=somepassword
-    - POSTGRES_PORT=5432
-    # Remember to keep this consistent
-    - django_secret_key=secret_key!
-
- log:
-  env_file: hseling_web_generator/environment.env
-  build:
-   context: ./hseling_web_generator/
-   dockerfile: ./docker/log/Dockerfile
-
- build-deps:
-  env_file: hseling_web_generator/environment.env
-  build:
-   context: ./hseling_web_generator/
-   dockerfile: ./docker/deps/Dockerfile
-  volumes:
-   - ./hseling_web_generator/vendor:/opt/ext_vendor
-  command: /opt/copy_deps.sh
-
  dev-server:
-  env_file: hseling_web_generator/environment.env
-  environment:
-   - CONSOLE_LOGS=1
   build: 
    context: ./hseling_web_generator/
-   args:
-    # Remember to keep this consistent
-    - django_secret_key=secret_key!
-  command: ./start_dev_server.sh
   ports:
    - "8000:80"
-  volumes:
-   - ./hseling_web_generator/src:/opt/code
+  #volumes:
+  # - ./hseling_web_generator/src:/opt/code
   depends_on:
-   - db
-   - log
    - hse-api-web
 
 volumes:
